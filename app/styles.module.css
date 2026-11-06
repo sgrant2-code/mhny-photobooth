@@ -1,0 +1,340 @@
+.appShell {
+  background: #0e0e10;
+  color: #f8f4ee;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.cameraScreen {
+  background: #151517;
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+}
+
+.cameraPreview {
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  position: absolute;
+  transform: scaleX(-1);
+  width: 100%;
+}
+
+.cameraShade {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.56) 0%, rgba(0, 0, 0, 0.04) 32%, rgba(0, 0, 0, 0.1) 52%, rgba(0, 0, 0, 0.72) 100%);
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.flash {
+  background: #ffffff;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 80ms ease-out;
+  z-index: 4;
+}
+
+.flash[data-visible="true"] {
+  opacity: 1;
+}
+
+.topBar,
+.resultHeader {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: calc(env(safe-area-inset-top) + 20px) 24px 16px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.brand,
+.shotCount,
+.resultKicker,
+.hint,
+.captureLabel,
+.eyebrow,
+.noticeText,
+.permissionText {
+  margin: 0;
+}
+
+.brand {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.shotCount,
+.resultKicker {
+  color: rgba(248, 244, 238, 0.78);
+  font-size: 0.75rem;
+  letter-spacing: 0.03em;
+}
+
+.cameraControls {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  padding: 24px 24px calc(env(safe-area-inset-bottom) + 27px);
+  position: absolute;
+  right: 0;
+  z-index: 5;
+}
+
+.hint {
+  font-size: 0.875rem;
+  margin-bottom: 17px;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.45);
+}
+
+.shutter {
+  align-items: center;
+  background: rgba(248, 244, 238, 0.3);
+  border: 3px solid #f8f4ee;
+  border-radius: 999px;
+  cursor: pointer;
+  display: flex;
+  height: 82px;
+  justify-content: center;
+  padding: 5px;
+  transition: transform 160ms ease, opacity 160ms ease;
+  width: 82px;
+}
+
+.shutter:active:not(:disabled) {
+  transform: scale(0.91);
+}
+
+.shutter:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.shutterCenter {
+  background: #f8f4ee;
+  border-radius: 50%;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.captureOverlay {
+  align-items: center;
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  z-index: 5;
+}
+
+.countdown {
+  color: #ffffff;
+  font-size: clamp(8rem, 36vw, 14rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.3);
+}
+
+.captureLabel {
+  background: rgba(14, 14, 16, 0.65);
+  border: 1px solid rgba(248, 244, 238, 0.36);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 10px 16px;
+}
+
+.notice,
+.permissionCard {
+  backdrop-filter: blur(16px);
+  background: rgba(14, 14, 16, 0.72);
+  border: 1px solid rgba(248, 244, 238, 0.22);
+  border-radius: 22px;
+  left: 24px;
+  padding: 22px;
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+}
+
+.notice {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  padding: 16px 20px;
+}
+
+.loader {
+  animation: spin 900ms linear infinite;
+  border: 2px solid rgba(248, 244, 238, 0.32);
+  border-right-color: #f8f4ee;
+  border-radius: 50%;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+}
+
+.noticeText {
+  font-size: 0.9rem;
+}
+
+.eyebrow {
+  color: #e9806a;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.permissionTitle {
+  font-size: clamp(1.8rem, 8vw, 2.5rem);
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  margin: 12px 0;
+}
+
+.permissionText {
+  color: rgba(248, 244, 238, 0.84);
+  font-size: 0.94rem;
+  line-height: 1.45;
+}
+
+.strongText {
+  color: #ffffff;
+}
+
+.primaryButton,
+.saveButton,
+.retakeButton {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 800;
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.primaryButton:active,
+.saveButton:active,
+.retakeButton:active {
+  transform: scale(0.97);
+}
+
+.primaryButton {
+  background: #f8f4ee;
+  color: #0e0e10;
+  margin-top: 20px;
+  padding: 14px 18px;
+  width: 100%;
+}
+
+.resultScreen {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(231, 93, 67, 0.16), transparent 35%),
+    #0e0e10;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+.resultHeader {
+  position: relative;
+}
+
+.stripStage {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  min-height: 0;
+  overflow: hidden;
+  padding: 0 28px 18px;
+}
+
+.photoStrip {
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.42);
+  max-height: min(66svh, 710px);
+  max-width: min(68vw, 350px);
+  object-fit: contain;
+  transform: rotate(-1.4deg);
+}
+
+.resultControls {
+  display: grid;
+  gap: 11px;
+  grid-template-columns: 1fr 1fr;
+  padding: 14px 24px calc(env(safe-area-inset-bottom) + 24px);
+}
+
+.saveButton,
+.retakeButton {
+  min-height: 54px;
+  padding: 14px 16px;
+}
+
+.saveButton {
+  background: #f8f4ee;
+  color: #0e0e10;
+}
+
+.retakeButton {
+  background: transparent;
+  border: 1px solid rgba(248, 244, 238, 0.44);
+  color: #f8f4ee;
+}
+
+.saveButton:hover {
+  background: #ffffff;
+}
+
+.retakeButton:hover {
+  background: rgba(248, 244, 238, 0.1);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (min-width: 680px) {
+  .appShell {
+    margin: 0 auto;
+    max-width: 520px;
+    position: relative;
+  }
+
+  .cameraScreen,
+  .resultScreen {
+    min-height: 100svh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    animation-duration: 3s;
+  }
+
+  .flash,
+  .shutter,
+  .primaryButton,
+  .saveButton,
+  .retakeButton {
+    transition: none;
+  }
+}
